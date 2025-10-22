@@ -6,13 +6,15 @@ Get started with Print All Attachments in 5 minutes!
 
 ### Step 1: Download (1 minute)
 1. Go to [Releases](https://github.com/hershyked/Print-all-attachments/releases)
-2. Download the latest `setup.exe`
+2. Download the latest `PrintAllAttachments-Release.zip`
+   - **No need to download setup.exe** - pre-built binaries are in the ZIP
 
 ### Step 2: Install (2 minutes)
-1. Run `setup.exe`
-2. Click "Install" when prompted
-3. Wait for installation to complete
-4. Close and restart Outlook
+1. Extract the ZIP file to a permanent location (e.g., `C:\Program Files\PrintAllAttachments\`)
+2. Look for `setup.exe` in the extracted folder and run it
+   - OR follow manual installation in [INSTALLATION.md](INSTALLATION.md) if no setup.exe
+3. Enable the add-in in Outlook (File > Options > Add-ins > COM Add-ins)
+4. Restart Outlook
 
 ### Step 3: Use It! (30 seconds)
 1. In Outlook, select emails with attachments
@@ -20,6 +22,8 @@ Get started with Print All Attachments in 5 minutes!
 3. Done! Check your printer
 
 **That's it!** 🎉
+
+**Note:** Pre-built binaries are automatically built and tested with GitHub Actions - no Visual Studio needed!
 
 ## For Developers (Want to Build It)
 

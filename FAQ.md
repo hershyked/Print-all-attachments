@@ -27,7 +27,14 @@ Yes. The add-in:
 You can download the latest release from the [Releases page](https://github.com/hershyked/Print-all-attachments/releases) or build it from source.
 
 ### Do I need Visual Studio to use this?
-No, you only need Visual Studio if you want to build the add-in from source. For regular use, just run the installer.
+No! You can download pre-built releases from the [Releases page](https://github.com/hershyked/Print-all-attachments/releases). Visual Studio is only needed if you want to modify the source code or contribute to development.
+
+### How are the pre-built releases created?
+Pre-built releases are automatically created using GitHub Actions:
+- Every commit is automatically built and tested on Windows
+- Build artifacts are available for download from the Actions tab
+- When a version tag is pushed (e.g., v1.0.0), a release is automatically created with pre-built binaries
+- This ensures consistent, tested builds without manual compilation
 
 ### Why do I see a security warning during installation?
 This is normal for VSTO add-ins. The warning appears because the add-in is not from the Microsoft Store and requires access to Outlook. If you built it from source or downloaded from our official repository, it's safe to proceed.
