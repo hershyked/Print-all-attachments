@@ -1,0 +1,169 @@
+# Installation Guide
+
+## Quick Install (Recommended)
+
+1. Download the latest release from the [Releases](https://github.com/hershyked/Print-all-attachments/releases) page
+2. Run the `setup.exe` file
+3. Follow the installation wizard
+4. Restart Outlook if it's running
+5. The "Print Attachments" button will appear in the Outlook ribbon
+
+## Building from Source
+
+### Prerequisites
+
+Before building, ensure you have:
+
+1. **Windows 10 or later**
+2. **Microsoft Visual Studio 2017 or later** with:
+   - Office/SharePoint development workload
+   - .NET desktop development workload
+3. **Microsoft Outlook** (2013 or later)
+4. **.NET Framework 4.7.2** or later
+
+### Installation Steps
+
+#### Step 1: Install Visual Studio
+
+If you don't have Visual Studio:
+
+1. Download [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) (free)
+2. During installation, select:
+   - "Office/SharePoint development" workload
+   - ".NET desktop development" workload
+3. Complete the installation
+
+#### Step 2: Clone the Repository
+
+```bash
+git clone https://github.com/hershyked/Print-all-attachments.git
+cd Print-all-attachments
+```
+
+#### Step 3: Open and Build the Project
+
+1. Open `PrintAllAttachments.sln` in Visual Studio
+2. In Visual Studio:
+   - Select **Release** configuration from the dropdown (top toolbar)
+   - Click **Build > Build Solution** (or press `Ctrl+Shift+B`)
+3. Wait for the build to complete
+
+#### Step 4: Publish the Add-in
+
+1. Right-click the **PrintAllAttachments** project in Solution Explorer
+2. Select **Publish**
+3. Choose a publish location (e.g., a folder on your desktop)
+4. Click **Finish**
+5. Click **Publish Now**
+
+#### Step 5: Install the Add-in
+
+1. Navigate to the publish folder you specified
+2. Run `setup.exe`
+3. If you see a security warning, click **Install** (this is safe - it's your own code)
+4. Wait for installation to complete
+5. Close Outlook if it's running
+6. Restart Outlook
+
+#### Step 6: Verify Installation
+
+1. Open Outlook
+2. Click on any mail folder
+3. Look for the **"Attachments"** group in the ribbon
+4. You should see a **"Print Attachments"** button
+
+## Development Installation
+
+For development and testing:
+
+1. Open the solution in Visual Studio
+2. Press **F5** to build and run
+3. Outlook will launch with the add-in loaded
+4. Make changes to the code as needed
+5. Press **Shift+F5** to stop debugging
+
+## Troubleshooting Installation
+
+### Visual Studio is missing Office development tools
+
+1. Open Visual Studio Installer
+2. Click **Modify** next to your Visual Studio installation
+3. Check the **Office/SharePoint development** workload
+4. Click **Modify** to install
+
+### The add-in doesn't appear after installation
+
+1. Close Outlook completely (check Task Manager to ensure no Outlook processes are running)
+2. Open Outlook
+3. Go to **File > Options > Add-ins**
+4. At the bottom, select **COM Add-ins** from the Manage dropdown
+5. Click **Go...**
+6. Ensure **PrintAllAttachments** is checked
+7. Click **OK**
+
+### Security warnings during installation
+
+This is normal for VSTO add-ins. The warning appears because:
+- The add-in is not from the Microsoft Store
+- It requires access to Outlook
+
+To proceed:
+1. Click **More info** on the warning
+2. Click **Install anyway**
+
+### The add-in is listed as disabled
+
+1. Go to **File > Options > Add-ins**
+2. Look in the **Disabled Application Add-ins** section
+3. If you see **PrintAllAttachments**, select **Disabled Items** from the Manage dropdown
+4. Click **Go...**
+5. Select the add-in and click **Enable**
+6. Restart Outlook
+
+## Uninstallation
+
+### Windows 10/11
+
+1. Open **Settings**
+2. Go to **Apps > Installed apps**
+3. Find **PrintAllAttachments**
+4. Click the three dots and select **Uninstall**
+5. Follow the prompts
+
+### Alternative Method
+
+1. Open **Control Panel**
+2. Go to **Programs > Programs and Features**
+3. Find **PrintAllAttachments**
+4. Click **Uninstall**
+5. Follow the prompts
+
+## Manual Registry Cleanup (Advanced)
+
+If you need to completely remove all traces:
+
+**⚠️ Warning: Editing the registry can be dangerous. Proceed with caution.**
+
+1. Press `Win+R`, type `regedit`, press Enter
+2. Navigate to:
+   ```
+   HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\Addins\PrintAllAttachments
+   ```
+3. Delete the `PrintAllAttachments` key if it exists
+4. Restart Outlook
+
+## System Requirements
+
+- **OS**: Windows 7 SP1 or later (Windows 10/11 recommended)
+- **Office**: Microsoft Outlook 2013 or later (Desktop version)
+- **Framework**: .NET Framework 4.7.2 or later
+- **RAM**: 2 GB minimum (4 GB recommended)
+- **Disk Space**: 50 MB for installation
+
+## Getting Help
+
+If you encounter issues during installation:
+
+1. Check the [Troubleshooting](#troubleshooting-installation) section above
+2. Review the [README](README.md) for additional information
+3. Open an issue on [GitHub](https://github.com/hershyked/Print-all-attachments/issues)
