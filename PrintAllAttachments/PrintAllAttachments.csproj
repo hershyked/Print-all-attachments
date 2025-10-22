@@ -93,5 +93,6 @@
   <PropertyGroup>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
+<ItemGroup> <PackageReference Include="Microsoft.VisualStudio.Tools.OfficeRuntime" Version="15.0.0" /> <PackageReference Include="Microsoft.Office.Interop.Outlook" Version="15.0.0" /> <PackageReference Include="Microsoft.Office.Tools.Common" Version="10.0.0" /> </ItemGroup>
   <Import Project="$(VSToolsPath)\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
