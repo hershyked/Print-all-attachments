@@ -1,12 +1,13 @@
+---
 name: Build and Release
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
     tags:
       - 'v*'
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -16,56 +17,66 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
-    
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v2
-    
-    - name: Restore NuGet packages
-      run: nuget restore PrintAllAttachments.sln
-    
-    - name: Build solution (Debug)
-      run: msbuild PrintAllAttachments.sln /p:Configuration=Debug /p:Platform="Any CPU" /verbosity:minimal
-      
-    - name: Build solution (Release)
-      run: msbuild PrintAllAttachments.sln /p:Configuration=Release /p:Platform="Any CPU" /verbosity:minimal
-    
-    - name: Upload Debug Build Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: PrintAllAttachments-Debug
-        path: PrintAllAttachments/bin/Debug/
-        retention-days: 30
-    
-    - name: Upload Release Build Artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: PrintAllAttachments-Release
-        path: PrintAllAttachments/bin/Release/
-        retention-days: 90
-    
-    - name: Create Release Archive
-      if: startsWith(github.ref, 'refs/tags/v')
-      run: |
-        Compress-Archive -Path PrintAllAttachments/bin/Release/* -DestinationPath PrintAllAttachments-Release.zip
-      shell: pwsh
-    
-    - name: Create GitHub Release
-      if: startsWith(github.ref, 'refs/tags/v')
-      uses: softprops/action-gh-release@v2
-      with:
-        files: |
-          PrintAllAttachments-Release.zip
-          PrintAllAttachments/bin/Release/PrintAllAttachments.dll
-          PrintAllAttachments/bin/Release/PrintAllAttachments.dll.manifest
-        draft: false
-        prerelease: false
-        generate_release_notes: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore PrintAllAttachments.sln
+
+      - name: Build solution (Debug)
+        run: |
+          msbuild PrintAllAttachments.sln `
+            /p:Configuration=Debug `
+            /p:Platform="Any CPU" `
+            /verbosity:minimal
+
+      - name: Build solution (Release)
+        run: |
+          msbuild PrintAllAttachments.sln `
+            /p:Configuration=Release `
+            /p:Platform="Any CPU" `
+            /verbosity:minimal
+
+      - name: Upload Debug Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: PrintAllAttachments-Debug
+          path: PrintAllAttachments/bin/Debug/
+          retention-days: 30
+
+      - name: Upload Release Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: PrintAllAttachments-Release
+          path: PrintAllAttachments/bin/Release/
+          retention-days: 90
+
+      - name: Create Release Archive
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          Compress-Archive `
+            -Path PrintAllAttachments/bin/Release/* `
+            -DestinationPath PrintAllAttachments-Release.zip
+        shell: pwsh
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            PrintAllAttachments-Release.zip
+            PrintAllAttachments/bin/Release/PrintAllAttachments.dll
+            PrintAllAttachments/bin/Release/PrintAllAttachments.dll.manifest
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
