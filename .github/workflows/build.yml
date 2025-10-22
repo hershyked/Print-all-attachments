@@ -9,6 +9,10 @@ on:
     branches: [ main, master ]
   workflow_dispatch:
 
+permissions:
+  contents: write  # Needed for creating releases and uploading artifacts
+  actions: read    # Needed for workflow execution
+
 jobs:
   build:
     runs-on: windows-latest
