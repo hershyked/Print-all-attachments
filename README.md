@@ -24,9 +24,19 @@ This add-in adds a "Print Attachments" button to the Outlook ribbon. When you se
 
 ## Requirements
 
+### For End Users (Just Installing)
+
+- **Windows Operating System** (Windows 10 or later recommended)
+- **Microsoft Outlook** (Desktop version - 2013 or later recommended)
+- **.NET Framework 4.7.2** or later (usually already installed on Windows 10+)
+
+**Note:** You do NOT need Visual Studio or any development tools! Just download the pre-built release.
+
+### For Developers (Building from Source)
+
 - **Windows Operating System**
 - **Microsoft Outlook** (Desktop version - 2013 or later recommended)
-- **Microsoft Visual Studio** (2017 or later) for building the project
+- **Microsoft Visual Studio** (2017 or later) with Office/SharePoint development workload
 - **.NET Framework 4.7.2** or later
 
 ## Installation
