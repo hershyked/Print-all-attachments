@@ -1,6 +1,11 @@
 # Print All Attachments - Outlook Add-in
 
+[![Build and Release](https://github.com/hershyked/Print-all-attachments/actions/workflows/build.yml/badge.svg)](https://github.com/hershyked/Print-all-attachments/actions/workflows/build.yml)
+[![GitHub release](https://img.shields.io/github/v/release/hershyked/Print-all-attachments)](https://github.com/hershyked/Print-all-attachments/releases)
+
 An Outlook VSTO Add-in that allows you to print all attachments from multiple selected emails with a single click.
+
+**✨ Now with automated builds - no need to compile from source!**
 
 ## Overview
 
@@ -26,7 +31,35 @@ This add-in adds a "Print Attachments" button to the Outlook ribbon. When you se
 
 ## Installation
 
-### Building from Source
+### Option 1: Download Pre-built Binary (Recommended)
+
+**No Visual Studio or build tools required!**
+
+1. **Download the latest release:**
+   - Go to the [Releases page](https://github.com/hershyked/Print-all-attachments/releases)
+   - Download the latest `PrintAllAttachments-Release.zip` file
+   - Or download individual files from the release assets
+
+2. **Extract the files:**
+   - Extract the ZIP file to a folder on your computer (e.g., `C:\PrintAllAttachments`)
+
+3. **Install the add-in:**
+   - Open the extracted folder
+   - Look for `setup.exe` or installation instructions in the release notes
+   - Follow the installation wizard
+   - Grant necessary permissions when prompted
+
+4. **Enable the add-in in Outlook:**
+   - Open Outlook
+   - Go to File > Options > Add-ins
+   - Ensure "PrintAllAttachments" is enabled
+   - Restart Outlook if needed
+
+**Note:** Pre-built binaries are automatically built by our CI/CD pipeline and are safe to use.
+
+### Option 2: Building from Source
+
+If you want to build from source or contribute to development:
 
 1. **Prerequisites:**
    - Install [Visual Studio](https://visualstudio.microsoft.com/) with the following workloads:
@@ -40,7 +73,7 @@ This add-in adds a "Print Attachments" button to the Outlook ribbon. When you se
    ```
 
 3. **Open the solution:**
-   - Open `PrintAllAttachments/PrintAllAttachments.csproj` in Visual Studio
+   - Open `PrintAllAttachments.sln` in Visual Studio
 
 4. **Build the project:**
    - Set the configuration to "Release"
@@ -56,7 +89,9 @@ This add-in adds a "Print Attachments" button to the Outlook ribbon. When you se
    - Run the `setup.exe` file
    - Follow the installation wizard
 
-### Alternative: Manual Installation (for development)
+### Option 3: Development Installation
+
+For developers who want to debug or modify the code:
 
 1. Build the project in Debug mode
 2. The add-in will automatically be registered in Outlook when you run the project from Visual Studio (F5)

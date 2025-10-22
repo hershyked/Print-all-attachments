@@ -2,6 +2,40 @@
 
 This guide covers how to build, test, and debug the Print All Attachments add-in.
 
+## For End Users: No Building Required!
+
+**⭐ If you just want to use the add-in, you don't need to build it yourself!**
+
+We provide pre-built releases that you can download and install directly:
+- Go to the [Releases page](https://github.com/hershyked/Print-all-attachments/releases)
+- Download the latest `PrintAllAttachments-Release.zip`
+- See [INSTALLATION.md](INSTALLATION.md) for installation instructions
+
+The following sections are for developers who want to:
+- Contribute to the project
+- Modify the source code
+- Debug issues
+- Build from source
+
+## Automated Builds
+
+This project uses GitHub Actions to automatically build the add-in on every commit. You can:
+
+1. **Download build artifacts:**
+   - Go to the [Actions](https://github.com/hershyked/Print-all-attachments/actions) tab
+   - Click on any successful workflow run
+   - Download the build artifacts (Debug or Release)
+
+2. **View build status:**
+   - The build status badge shows if the latest build passed
+   - Builds run on Windows using MSBuild
+   - Both Debug and Release configurations are built
+
+3. **Automatic releases:**
+   - When a version tag (e.g., `v1.0.0`) is pushed, a release is automatically created
+   - Release artifacts are attached to the GitHub release
+   - Users can download pre-built binaries from the Releases page
+
 ## Prerequisites
 
 ### Required Software
@@ -364,38 +398,41 @@ For production deployment, sign your add-in:
    - Select certificate
    - Enter password
 
-## Continuous Integration (Future)
+## Continuous Integration
 
-### GitHub Actions Example
+### GitHub Actions Workflow
 
-```yaml
-# .github/workflows/build.yml
-name: Build and Test
+This project uses GitHub Actions for continuous integration and automated builds.
 
-on: [push, pull_request]
+**Workflow File:** `.github/workflows/build.yml`
 
-jobs:
-  build:
-    runs-on: windows-latest
-    
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1
-    
-    - name: Restore NuGet packages
-      run: nuget restore PrintAllAttachments.sln
-    
-    - name: Build
-      run: msbuild PrintAllAttachments.sln /p:Configuration=Release
-    
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: PrintAllAttachments
-        path: PrintAllAttachments/bin/Release/
-```
+**What it does:**
+- Automatically builds the project on every push and pull request
+- Builds both Debug and Release configurations
+- Uploads build artifacts for download
+- Creates GitHub releases with pre-built binaries when version tags are pushed
+
+**Build artifacts:**
+- Available for 30 days (Debug) or 90 days (Release)
+- Can be downloaded from the Actions tab
+- Include all DLLs, manifests, and related files
+
+**Creating a release:**
+1. Tag a commit with a version number:
+   ```bash
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+2. GitHub Actions will automatically:
+   - Build the Release configuration
+   - Create a new GitHub release
+   - Attach build artifacts to the release
+   - Generate release notes
+
+**Viewing build status:**
+- Check the Actions tab on GitHub
+- Look for the workflow run corresponding to your commit
+- View logs to debug build issues
 
 ## Troubleshooting Build Issues
 

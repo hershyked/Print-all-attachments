@@ -1,12 +1,69 @@
 # Installation Guide
 
-## Quick Install (Recommended)
+## Quick Install (Recommended - No Build Tools Required!)
 
-1. Download the latest release from the [Releases](https://github.com/hershyked/Print-all-attachments/releases) page
-2. Run the `setup.exe` file
-3. Follow the installation wizard
-4. Restart Outlook if it's running
-5. The "Print Attachments" button will appear in the Outlook ribbon
+**This is the easiest way to install the add-in. You don't need Visual Studio or any build tools!**
+
+### Step-by-Step Installation
+
+1. **Download the pre-built release:**
+   - Go to the [Releases](https://github.com/hershyked/Print-all-attachments/releases) page
+   - Click on the latest release (highest version number)
+   - Download `PrintAllAttachments-Release.zip`
+
+2. **Extract the files:**
+   - Right-click the downloaded ZIP file
+   - Select "Extract All..."
+   - Choose a location (e.g., `C:\PrintAllAttachments`)
+   - Click "Extract"
+
+3. **Install the add-in:**
+   - Open the extracted folder
+   - Look for `setup.exe` (if available) and run it
+   - OR manually register the DLL (see Manual Installation section below)
+   - Follow any installation prompts
+
+4. **Enable in Outlook:**
+   - Open Microsoft Outlook
+   - Go to **File > Options > Add-ins**
+   - At the bottom, select "COM Add-ins" from the Manage dropdown
+   - Click **Go...**
+   - Check the box next to **PrintAllAttachments**
+   - Click **OK**
+
+5. **Restart Outlook:**
+   - Close Outlook completely
+   - Open Outlook again
+   - The "Print Attachments" button should appear in the ribbon
+
+**Note:** Pre-built releases are automatically built and tested by our CI/CD pipeline on GitHub Actions.
+
+### Manual Installation (Alternative Method)
+
+If a setup.exe is not available in the release, you can manually register the add-in:
+
+1. **Extract the release files** to a permanent location (e.g., `C:\Program Files\PrintAllAttachments\`)
+   - Do NOT delete these files after installation - they need to stay on your computer
+
+2. **Register the add-in manually:**
+   - Open Command Prompt as Administrator
+   - Navigate to the extracted folder
+   - Run the following command (adjust path as needed):
+     ```cmd
+     reg add "HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\Addins\PrintAllAttachments" /v "Description" /t REG_SZ /d "Print All Attachments Add-in" /f
+     reg add "HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\Addins\PrintAllAttachments" /v "FriendlyName" /t REG_SZ /d "Print All Attachments" /f
+     reg add "HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\Addins\PrintAllAttachments" /v "LoadBehavior" /t REG_DWORD /d 3 /f
+     reg add "HKEY_CURRENT_USER\Software\Microsoft\Office\Outlook\Addins\PrintAllAttachments" /v "Manifest" /t REG_SZ /d "C:\Program Files\PrintAllAttachments\PrintAllAttachments.dll.manifest|vstolocal" /f
+     ```
+   - **Note:** Replace `C:\Program Files\PrintAllAttachments\` with your actual installation path
+
+3. **Trust the add-in location:**
+   - Open **File Explorer**
+   - Navigate to the folder containing the DLL
+   - Right-click the folder > Properties > Security
+   - Ensure your user account has Read and Execute permissions
+
+4. **Restart Outlook** to load the add-in
 
 ## Building from Source
 
