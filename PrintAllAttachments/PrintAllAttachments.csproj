@@ -81,7 +81,7 @@
     <None Include="PrintAllAttachments_TemporaryKey.pfx" />
   </ItemGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>PrintAllAttachments_TemporaryKey.pfx</ManifestKeyFile>
