@@ -85,7 +85,7 @@ This add-in adds a "Print Attachments" button to the Outlook ribbon. When you se
 
 #### Building with Scripts:
 ```bash
-# Build only (run from repository root)
+# Build only (works from any directory)
 build.bat
 
 # Install after building (run as Administrator)

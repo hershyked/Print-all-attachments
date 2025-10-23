@@ -111,7 +111,7 @@ Visual Studio should automatically restore dependencies. If not:
 We provide a `build.bat` script that automates the entire build process:
 
 ```bash
-# From the repository root
+# You can run this from anywhere - it automatically finds the repository root
 build.bat
 ```
 
