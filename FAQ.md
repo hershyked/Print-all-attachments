@@ -78,6 +78,14 @@ No, the add-in only processes file attachments, not inline images embedded in th
 
 ## Troubleshooting
 
+### "build.bat is not recognized" error when running quick-install.bat
+This error has been fixed in recent versions. Make sure you have the latest version of the repository. The scripts now automatically find the correct directory.
+
+If you still see this error with an older version:
+1. Make sure both `quick-install.bat` and `build.bat` are in the same folder (repository root)
+2. Right-click `quick-install.bat` and select "Run as administrator" (don't run from command prompt in a different directory)
+3. Or update to the latest version where this is fixed
+
 ### Nothing happens when I click the button
 1. Verify you have selected at least one email
 2. Check if the selected emails have attachments (look for the paperclip icon)
