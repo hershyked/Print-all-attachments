@@ -6,6 +6,22 @@ This guide covers how to build, test, and debug the Print All Attachments add-in
 
 **⭐ If you just want to use the add-in, you don't need to build it yourself!**
 
+### 🚀 Quick Install (Recommended)
+
+Use the automated installation script:
+
+1. Download or clone this repository
+2. Right-click `quick-install.bat` and select "Run as administrator"
+3. Wait for the build and installation to complete
+4. Enable the add-in in Outlook (File > Options > Add-ins > COM Add-ins)
+5. Restart Outlook
+
+**Time**: 5-10 minutes | **Prerequisites**: Visual Studio with Office development tools
+
+📖 **Detailed instructions**: See [README-INSTALL.md](README-INSTALL.md)
+
+### 📦 Pre-built Releases (When Available)
+
 We provide pre-built releases that you can download and install directly:
 - Go to the [Releases page](https://github.com/hershyked/Print-all-attachments/releases)
 - Download the latest `PrintAllAttachments-Release.zip`
@@ -90,7 +106,23 @@ Visual Studio should automatically restore dependencies. If not:
 
 ### Step 4: Build the Project
 
-#### Using Visual Studio IDE
+#### Option A: Using the Build Script (Easiest)
+
+We provide a `build.bat` script that automates the entire build process:
+
+```bash
+# From the repository root
+build.bat
+```
+
+The script will:
+- Automatically locate MSBuild
+- Download NuGet if needed
+- Restore NuGet packages
+- Build the Release configuration
+- Display clear error messages if anything fails
+
+#### Option B: Using Visual Studio IDE
 
 1. Select build configuration:
    - **Debug**: For development and testing
@@ -102,6 +134,8 @@ Visual Studio should automatically restore dependencies. If not:
    - Right-click solution → Build
 
 #### Using Command Line (MSBuild)
+
+**Note**: The `build.bat` script (see Option A above) automates this process. Use this method only if you need manual control.
 
 ```bash
 # Navigate to solution directory
@@ -128,6 +162,52 @@ Time Elapsed 00:00:05.12
 Build artifacts location:
 - Debug: `PrintAllAttachments/bin/Debug/`
 - Release: `PrintAllAttachments/bin/Release/`
+
+### Step 6: Install the Add-in
+
+#### Option A: Using the Installation Script (Recommended)
+
+We provide a `install.ps1` PowerShell script that automates installation:
+
+```powershell
+# Run PowerShell as Administrator
+.\install.ps1
+
+# To uninstall later
+.\install.ps1 -Uninstall
+
+# To install to a custom location
+.\install.ps1 -InstallPath "C:\MyCustomPath"
+
+# To force installation even if Outlook is running (not recommended)
+.\install.ps1 -Force
+```
+
+The script will:
+- Copy files to Program Files
+- Register the add-in in the Windows Registry
+- Provide clear instructions for enabling in Outlook
+
+#### Option B: Manual Installation
+
+If you prefer to install manually, see the sections below on Publishing and Manual Registry setup.
+
+## Quick Build + Install
+
+For the fastest experience, use our all-in-one script:
+
+```bash
+# Run as Administrator
+quick-install.bat
+```
+
+This script automatically:
+1. Builds the solution (Release configuration)
+2. Installs to Program Files
+3. Registers with Outlook
+4. Provides next steps
+
+**Time**: 5-10 minutes from download to working add-in!
 
 ## Running and Debugging
 
