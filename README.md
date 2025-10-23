@@ -7,6 +7,8 @@ An Outlook VSTO Add-in that allows you to print all attachments from multiple se
 
 **✨ NEW: One-click installation scripts - install in minutes without Visual Studio!**
 
+📋 **Quick Start**: See [SCRIPTS-GUIDE.md](SCRIPTS-GUIDE.md) for a complete reference of all installation scripts
+
 ## 🚀 Quick Install
 
 **Want to install right now?** Choose your method:
