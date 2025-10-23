@@ -5,7 +5,17 @@
 
 An Outlook VSTO Add-in that allows you to print all attachments from multiple selected emails with a single click.
 
-**✨ Now with automated builds - no need to compile from source!**
+**✨ NEW: One-click installation scripts - install in minutes without Visual Studio!**
+
+## 🚀 Quick Install
+
+**Want to install right now?** Choose your method:
+
+1. **Pre-built Release** (2 minutes) - Download and run from [Releases](https://github.com/hershyked/Print-all-attachments/releases)
+2. **One-Click Script** (5 minutes) - Run `quick-install.bat` as Administrator (requires Visual Studio)
+3. **Manual Build** (10 minutes) - Traditional Visual Studio build process
+
+📖 **See [README-INSTALL.md](README-INSTALL.md) for step-by-step instructions**
 
 ## Overview
 
@@ -41,71 +51,63 @@ This add-in adds a "Print Attachments" button to the Outlook ribbon. When you se
 
 ## Installation
 
-### Option 1: Download Pre-built Binary (Recommended)
+### 🚀 Option 1: Quick Install (Recommended - 5 minutes)
 
-**No Visual Studio or build tools required!**
+**New! One-click installation with automated scripts:**
 
-1. **Download the latest release:**
-   - Go to the [Releases page](https://github.com/hershyked/Print-all-attachments/releases)
-   - Download the latest `PrintAllAttachments-Release.zip` file
-   - Or download individual files from the release assets
+1. **Download the repository** (or clone it)
+2. **Run as Administrator**: `quick-install.bat`
+3. **Enable in Outlook**: File > Options > Add-ins > COM Add-ins > Check "PrintAllAttachments"
+4. **Restart Outlook** and you're done! ✨
 
-2. **Extract the files:**
-   - Extract the ZIP file to a folder on your computer (e.g., `C:\PrintAllAttachments`)
+**Requirements**: Visual Studio 2017+ with Office/SharePoint development workload
+**Note**: You don't need to know how to use Visual Studio - the script does everything!
 
-3. **Install the add-in:**
-   - Open the extracted folder
-   - Look for `setup.exe` or installation instructions in the release notes
-   - Follow the installation wizard
-   - Grant necessary permissions when prompted
+📖 **Full instructions**: See [README-INSTALL.md](README-INSTALL.md)
 
-4. **Enable the add-in in Outlook:**
-   - Open Outlook
-   - Go to File > Options > Add-ins
-   - Ensure "PrintAllAttachments" is enabled
-   - Restart Outlook if needed
+### 📦 Option 2: Pre-built Release (2 minutes - Easiest)
 
-**Note:** Pre-built binaries are automatically built by our CI/CD pipeline and are safe to use.
+**When available, this is the fastest method:**
 
-### Option 2: Building from Source
+1. **Download**: Go to [Releases](https://github.com/hershyked/Print-all-attachments/releases) → Download `PrintAllAttachments-Release.zip`
+2. **Extract**: Unzip to a permanent location (e.g., `C:\Program Files\PrintAllAttachments`)
+3. **Install**: Run `install.ps1` as Administrator
+4. **Enable in Outlook**: File > Options > Add-ins > COM Add-ins > Check "PrintAllAttachments"
+5. **Restart Outlook**
 
-If you want to build from source or contribute to development:
+### 🛠️ Option 3: Manual Build (Traditional Method)
 
-1. **Prerequisites:**
-   - Install [Visual Studio](https://visualstudio.microsoft.com/) with the following workloads:
-     - Office/SharePoint development
-     - .NET desktop development
+**For developers or if you prefer manual control:**
 
-2. **Clone the repository:**
+#### Building with Scripts:
+```bash
+# Build only (run from repository root)
+build.bat
+
+# Install after building (run as Administrator)
+powershell -ExecutionPolicy Bypass -File install.ps1
+```
+
+#### Building with Visual Studio:
+1. Install [Visual Studio](https://visualstudio.microsoft.com/) with Office/SharePoint development workload
+2. Clone the repository:
    ```bash
    git clone https://github.com/hershyked/Print-all-attachments.git
    cd Print-all-attachments
    ```
+3. Open `PrintAllAttachments.sln` in Visual Studio
+4. Set configuration to "Release"
+5. Build > Build Solution (`Ctrl+Shift+B`)
+6. Run `install.ps1` as Administrator to install
 
-3. **Open the solution:**
-   - Open `PrintAllAttachments.sln` in Visual Studio
-
-4. **Build the project:**
-   - Set the configuration to "Release"
-   - Build > Build Solution (or press `Ctrl+Shift+B`)
-
-5. **Deploy the add-in:**
-   - Build > Publish PrintAllAttachments
-   - Follow the ClickOnce deployment wizard
-   - OR: Right-click the project > Properties > Publish > Publish Wizard
-
-6. **Install the add-in:**
-   - Navigate to the publish output folder
-   - Run the `setup.exe` file
-   - Follow the installation wizard
-
-### Option 3: Development Installation
+### 🔧 Option 4: Development Installation
 
 For developers who want to debug or modify the code:
 
-1. Build the project in Debug mode
-2. The add-in will automatically be registered in Outlook when you run the project from Visual Studio (F5)
-3. For manual registration, you can use the Registry Editor to add the necessary registry keys (advanced users only)
+1. Open the solution in Visual Studio
+2. Press `F5` to build and run with debugging
+3. Outlook will launch with the add-in loaded automatically
+4. Make changes and press `F5` again to test
 
 ## Usage
 
