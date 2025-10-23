@@ -42,6 +42,8 @@ This add-in adds a "Print Attachments" button to the Outlook ribbon. When you se
 
 **Note:** You do NOT need Visual Studio or any development tools! Just download the pre-built release.
 
+**💡 Tip**: Run `check-prerequisites.bat` to verify your system meets all requirements!
+
 ### For Developers (Building from Source)
 
 - **Windows Operating System**

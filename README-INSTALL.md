@@ -11,6 +11,36 @@ Before you start, make sure you have:
 - ✅ Microsoft Outlook (Desktop version - 2013 or later)
 - ✅ .NET Framework 4.7.2 or later (usually pre-installed on Windows 10+)
 
+## 🚀 Quick Install (Easiest)
+
+**⚡ Install in 5 minutes with automated scripts!**
+
+### Installation Flow
+
+```
+1. Download Repository
+   ↓
+2. Check Prerequisites (optional)
+   Run: check-prerequisites.bat
+   ↓
+3. Run Quick Install
+   Run as Admin: quick-install.bat
+   ↓
+4. Enable in Outlook
+   File > Options > Add-ins > COM Add-ins
+   ↓
+5. Restart Outlook
+   ↓
+✅ Ready to Print Attachments!
+```
+
+### What You Need
+
+Before you start, make sure you have:
+- ✅ Windows 10 or later
+- ✅ Microsoft Outlook (Desktop version - 2013 or later)
+- ✅ .NET Framework 4.7.2 or later (usually pre-installed on Windows 10+)
+
 ## Option 1: Download Pre-built Release (Easiest)
 
 **If available, this is the fastest method!**
@@ -41,6 +71,8 @@ Before you start, make sure you have:
   - Office/SharePoint development workload
   - .NET desktop development workload
 
+**💡 Tip**: Run `check-prerequisites.bat` to verify your system has everything needed!
+
 **Don't worry!** You don't need to know how to use Visual Studio - the script handles everything.
 
 ### Installation Steps
@@ -50,13 +82,18 @@ Before you start, make sure you have:
    - Select "Download ZIP"
    - Extract to a folder (e.g., `C:\PrintAllAttachments`)
 
-2. **Run the quick install script**:
+2. **(Optional) Check prerequisites**:
+   - Double-click `check-prerequisites.bat`
+   - Review the results
+   - Install any missing components
+
+3. **Run the quick install script**:
    - Open the extracted folder
    - Right-click `quick-install.bat`
    - Select "Run as administrator"
    - Wait for the build and installation to complete
 
-3. **Enable in Outlook**:
+4. **Enable in Outlook**:
    - Open Outlook
    - File > Options > Add-ins > Manage: COM Add-ins > Go...
    - Check "PrintAllAttachments" > OK
@@ -91,7 +128,37 @@ If you prefer to build manually:
 
 ## Troubleshooting
 
-### "Build failed" error
+### Build Issues
+
+#### "MSBuild not found" error
+- **Cause**: Visual Studio not installed or not in expected location
+- **Fix**: 
+  1. Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) (Community edition is free)
+  2. During installation, select these workloads:
+     - ✅ Office/SharePoint development
+     - ✅ .NET desktop development
+  3. Run `build.bat` again
+
+#### "NuGet restore failed" error
+- **Cause**: Network issues or NuGet not accessible
+- **Fix**: 
+  ```bash
+  # Download NuGet manually
+  # Then run from command prompt:
+  nuget.exe restore PrintAllAttachments.sln
+  ```
+
+#### "Build failed" with reference errors
+- **Cause**: Missing Office development components
+- **Fix**: 
+  1. Open Visual Studio Installer
+  2. Click "Modify" on your installation
+  3. Ensure "Office/SharePoint development" is checked
+  4. Click "Modify" to install missing components
+
+### Installation Issues
+
+#### "Cannot run scripts" error in PowerShell
 - **Cause**: Visual Studio not installed or missing components
 - **Fix**: Install Visual Studio with Office/SharePoint development workload
   - Download from: https://visualstudio.microsoft.com/downloads/
