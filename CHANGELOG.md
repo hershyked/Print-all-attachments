@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fixed `quick-install.bat` failing with "'build.bat' is not recognized" error when run from different directories
+
 ### Planned Features
 - Custom printer selection
 - Print settings configuration dialog
