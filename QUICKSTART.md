@@ -4,6 +4,16 @@ Get started with Print All Attachments in 5 minutes!
 
 ## For Users (Just Want to Use It)
 
+### 🚀 NEW: One-Click Install Method (5 minutes)
+
+1. **Download** the repository (click green "Code" button > Download ZIP)
+2. **Extract** to a folder
+3. **Right-click** `quick-install.bat` > "Run as administrator"
+4. **Enable** in Outlook (File > Options > Add-ins > COM Add-ins)
+5. **Restart** Outlook
+
+**Prerequisites**: Visual Studio with Office development tools (free Community edition works)
+
 ### Step 1: Download (1 minute)
 1. Go to [Releases](https://github.com/hershyked/Print-all-attachments/releases)
 2. Download the latest `PrintAllAttachments-Release.zip`

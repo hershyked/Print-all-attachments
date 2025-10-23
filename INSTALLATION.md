@@ -1,5 +1,48 @@
 # Installation Guide
 
+## 🚀 Quick Install (NEW - Easiest Method!)
+
+**Install in 5 minutes with automated scripts - no Visual Studio UI needed!**
+
+### Prerequisites
+- Windows 10 or later
+- Visual Studio 2017+ with Office/SharePoint development workload installed
+  - Don't worry! You don't need to know how to use Visual Studio - the scripts do everything
+
+### Installation Steps
+
+1. **Download the repository**:
+   - Click the green "Code" button on GitHub → Download ZIP
+   - Or clone: `git clone https://github.com/hershyked/Print-all-attachments.git`
+   - Extract to a folder (e.g., `C:\PrintAllAttachments`)
+
+2. **Run the installer**:
+   - Navigate to the extracted folder
+   - Right-click `quick-install.bat`
+   - Select "Run as administrator"
+   - Wait for build and installation (5-10 minutes)
+
+3. **Enable in Outlook**:
+   - Open Outlook
+   - Go to **File > Options > Add-ins**
+   - Select "COM Add-ins" from the Manage dropdown → Click **Go...**
+   - Check the box next to **PrintAllAttachments** → Click **OK**
+
+4. **Restart Outlook** - Done! ✨
+
+The "Print Attachments" button should now appear in your Outlook ribbon.
+
+### What the Script Does
+- ✅ Automatically finds MSBuild
+- ✅ Downloads NuGet if needed
+- ✅ Restores dependencies
+- ✅ Builds the add-in (Release configuration)
+- ✅ Copies files to Program Files
+- ✅ Registers with Outlook
+- ✅ Provides clear next steps
+
+---
+
 ## Quick Install (Recommended - No Build Tools Required!)
 
 **This is the easiest way to install the add-in. You don't need Visual Studio or any build tools!**
@@ -178,6 +221,19 @@ To proceed:
 6. Restart Outlook
 
 ## Uninstallation
+
+### Using the Uninstall Script (Easiest)
+
+```bash
+# Right-click and "Run as administrator"
+uninstall.bat
+```
+
+Or using PowerShell:
+```powershell
+# Run PowerShell as Administrator
+.\install.ps1 -Uninstall
+```
 
 ### Windows 10/11
 
