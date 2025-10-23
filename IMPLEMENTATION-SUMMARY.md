@@ -23,8 +23,7 @@ Created a comprehensive suite of automated installation scripts and documentatio
 
 2. **build.bat** (4,837 bytes)
    - Automatically locates MSBuild (Visual Studio build tool)
-   - Downloads NuGet if needed
-   - Restores dependencies and builds Release configuration
+   - Builds Release configuration
    - Provides clear error messages and guidance
 
 3. **install.ps1** (6,649 bytes)
@@ -98,7 +97,7 @@ Created a comprehensive suite of automated installation scripts and documentatio
 
 2. **Lower Technical Barrier**
    - No need to open Visual Studio
-   - No need to understand MSBuild or NuGet
+   - No need to understand MSBuild
    - Clear error messages with solutions
    - Step-by-step guidance throughout
 
@@ -120,7 +119,6 @@ Created a comprehensive suite of automated installation scripts and documentatio
    - Searches multiple Visual Studio versions (2017-2022)
    - Supports Community, Professional, and Enterprise editions
    - Falls back to vswhere for detection
-   - Downloads NuGet automatically if missing
 
 2. **Safe Installation**
    - Checks for administrator privileges

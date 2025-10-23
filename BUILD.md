@@ -97,14 +97,9 @@ start PrintAllAttachments.sln
 # Or double-click PrintAllAttachments.sln in File Explorer
 ```
 
-### Step 3: Restore Dependencies
+### Step 3: Build the Project
 
-Visual Studio should automatically restore dependencies. If not:
-
-1. Right-click the solution in Solution Explorer
-2. Select "Restore NuGet Packages"
-
-### Step 4: Build the Project
+**Note**: This project does not use NuGet packages. All dependencies are from the .NET Framework and GAC (Global Assembly Cache), so no package restore is needed.
 
 #### Option A: Using the Build Script (Easiest)
 
@@ -117,8 +112,6 @@ build.bat
 
 The script will:
 - Automatically locate MSBuild
-- Download NuGet if needed
-- Restore NuGet packages
 - Build the Release configuration
 - Display clear error messages if anything fails
 

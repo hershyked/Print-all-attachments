@@ -141,8 +141,6 @@ Before you start, make sure you have:
 ### What the Script Does
 The `quick-install.bat` script automatically:
 - ✅ Finds MSBuild on your system
-- ✅ Downloads NuGet if needed
-- ✅ Restores dependencies
 - ✅ Builds the add-in
 - ✅ Copies files to Program Files
 - ✅ Registers the add-in with Outlook
@@ -175,15 +173,6 @@ If you prefer to build manually:
      - ✅ Office/SharePoint development
      - ✅ .NET desktop development
   3. Run `build.bat` again
-
-#### "NuGet restore failed" error
-- **Cause**: Network issues or NuGet not accessible
-- **Fix**: 
-  ```bash
-  # Download NuGet manually
-  # Then run from command prompt:
-  nuget.exe restore PrintAllAttachments.sln
-  ```
 
 #### "Build failed" with reference errors
 - **Cause**: Missing Office development components

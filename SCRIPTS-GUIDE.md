@@ -74,14 +74,11 @@ quick-install.bat
 
 **What it does**:
 1. Locates MSBuild automatically
-2. Downloads NuGet if needed
-3. Restores NuGet packages
-4. Builds the Release configuration
-5. Reports success or detailed errors
+2. Builds the Release configuration
+3. Reports success or detailed errors
 
 **Requirements**:
 - Visual Studio 2017+ with Office development tools
-- Internet connection (for NuGet)
 
 **When to use**:
 - When you want to build without installing

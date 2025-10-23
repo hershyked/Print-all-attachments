@@ -88,36 +88,6 @@ exit /b 1
 echo Found MSBuild: %MSBUILD_PATH%
 echo.
 
-REM Check for NuGet
-echo Looking for NuGet...
-where /q nuget
-if %ERRORLEVEL% NEQ 0 (
-    echo NuGet not found in PATH. Attempting to download...
-    powershell -Command "& {Invoke-WebRequest -Uri 'https://dist.nuget.org/win-x86-commandline/latest/nuget.exe' -OutFile 'nuget.exe'}"
-    if %ERRORLEVEL% NEQ 0 (
-        echo ERROR: Failed to download NuGet!
-        echo Please download NuGet manually from https://www.nuget.org/downloads
-        pause
-        exit /b 1
-    )
-    set NUGET_PATH=nuget.exe
-) else (
-    set NUGET_PATH=nuget
-)
-
-echo Found NuGet
-echo.
-
-REM Restore NuGet packages
-echo Restoring NuGet packages...
-"%NUGET_PATH%" restore PrintAllAttachments.sln
-if %ERRORLEVEL% NEQ 0 (
-    echo ERROR: NuGet restore failed!
-    pause
-    exit /b 1
-)
-echo.
-
 REM Build the solution
 echo Building solution (Release configuration)...
 echo.
