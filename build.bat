@@ -7,6 +7,9 @@ echo Print All Attachments - Build Script
 echo ========================================
 echo.
 
+REM Change to the script's directory
+cd /d "%~dp0"
+
 REM Check if running from the correct directory
 if not exist "PrintAllAttachments.sln" (
     echo ERROR: PrintAllAttachments.sln not found!
