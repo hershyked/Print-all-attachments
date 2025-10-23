@@ -25,7 +25,7 @@ if %errorLevel% NEQ 0 (
 
 echo Step 1: Building the add-in...
 echo.
-call build.bat
+call "%~dp0build.bat"
 if %ERRORLEVEL% NEQ 0 (
     echo.
     echo Build failed! Please check the errors above.
