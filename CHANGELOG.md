@@ -15,6 +15,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Print preview option
 - Statistics tracking
 
+## [1.1.0] - 2025-10-23
+
+### Added
+- **Simple Guide**: New SIMPLE-GUIDE.md for users who find the system overwhelming
+- **Smart File Detection**: Automatic detection and skipping of unsupported file types (ZIP, videos, etc.)
+- **Batch Confirmation**: Warn users before printing large batches (>20 attachments)
+- **Pre-validation**: Check for attachments before starting to avoid wasted operations
+- **Progress Indication**: Wait cursor for large batch operations
+- **Filename Sanitization**: Handle invalid characters and excessively long filenames
+- **Embedded Item Handling**: Skip embedded email attachments that cannot be printed
+
+### Improved
+- **Error Messages**: More helpful, actionable error messages with troubleshooting steps
+- **Print Reliability**: Dynamic timeout based on file size (2-10 seconds) instead of fixed 1 second
+- **Cleanup Logic**: Retry mechanism for deleting temporary files when locked by printing processes
+- **Result Reporting**: Clear, emoji-enhanced success/warning messages
+- **User Guidance**: Better feedback when no attachments found or no emails selected
+- **Documentation**: Updated README and QUICKSTART to emphasize simplicity
+
+### Fixed
+- Files may not print if timeout too short (now dynamically calculated)
+- Temp directory cleanup failures due to file locks (now retries)
+- Unhelpful error messages (now provide specific guidance)
+- No warning for large batches (now prompts for confirmation)
+
+### Security
+- ✅ CodeQL security scan passed with 0 issues
+- No security vulnerabilities introduced
+
 ## [1.0.0] - 2025-01-XX
 
 ### Added
