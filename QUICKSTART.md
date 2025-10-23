@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-Get started with Print All Attachments in 5 minutes!
+Get started with Print All Attachments in 5 minutes! This is your **simple solution** for printing attachments from Outlook.
 
 ## For Users (Just Want to Use It)
 
@@ -27,11 +27,12 @@ Get started with Print All Attachments in 5 minutes!
 4. Restart Outlook
 
 ### Step 3: Use It! (30 seconds)
-1. In Outlook, select emails with attachments
+1. In Outlook, select emails with attachments (look for the 📎 icon)
 2. Click "Print Attachments" button in the ribbon
-3. Done! Check your printer
+3. Confirm if printing many files
+4. Done! Check your printer
 
-**That's it!** 🎉
+**That's it!** 🎉 No more opening each email individually!
 
 **Note:** Pre-built binaries are automatically built and tested with GitHub Actions - no Visual Studio needed!
 

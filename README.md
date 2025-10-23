@@ -5,8 +5,9 @@
 
 An Outlook VSTO Add-in that allows you to print all attachments from multiple selected emails with a single click.
 
-**✨ NEW: One-click installation scripts - install in minutes without Visual Studio!**
+**✨ NEW: Improved reliability and user experience - simpler than ever!**
 
+📋 **Too complicated?** See [SIMPLE-GUIDE.md](SIMPLE-GUIDE.md) for a no-nonsense guide  
 📋 **Quick Start**: See [SCRIPTS-GUIDE.md](SCRIPTS-GUIDE.md) for a complete reference of all installation scripts
 
 ## 🚀 Quick Install
@@ -24,15 +25,20 @@ An Outlook VSTO Add-in that allows you to print all attachments from multiple se
 This add-in adds a "Print Attachments" button to the Outlook ribbon. When you select multiple emails and click this button, it will:
 - Extract all attachments from the selected emails
 - Send each attachment to your default printer
-- Show you a summary of how many attachments were printed
+- Show you a clear summary of results
+- Handle errors gracefully with helpful messages
+
+**The Simple Solution**: No more opening each email individually! Select all your emails and print with one click.
 
 ## Features
 
-- ✅ Print attachments from multiple selected emails at once
-- ✅ Works with any file type that has a default print handler
-- ✅ Provides feedback on success/errors
-- ✅ Automatically cleans up temporary files
-- ✅ Simple one-click operation
+- ✅ **Simple**: Print attachments from multiple selected emails with one click
+- ✅ **Smart**: Automatically skips unsupported files (ZIP, videos, etc.)
+- ✅ **Safe**: Warns before printing large batches (>20 attachments)
+- ✅ **Clear Feedback**: See exactly what printed, what was skipped, and any errors
+- ✅ **Reliable**: Dynamic timeouts based on file size for better success rates
+- ✅ **Clean**: Automatically cleans up temporary files with retry logic
+- ✅ **User-Friendly**: Helpful error messages guide you if something goes wrong
 
 ## Requirements
 
