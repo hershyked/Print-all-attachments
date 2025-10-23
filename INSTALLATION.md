@@ -34,8 +34,6 @@ The "Print Attachments" button should now appear in your Outlook ribbon.
 
 ### What the Script Does
 - ✅ Automatically finds MSBuild
-- ✅ Downloads NuGet if needed
-- ✅ Restores dependencies
 - ✅ Builds the add-in (Release configuration)
 - ✅ Copies files to Program Files
 - ✅ Registers with Outlook

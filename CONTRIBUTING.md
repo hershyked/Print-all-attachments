@@ -36,8 +36,8 @@ Thank you for considering contributing to this project! This document provides g
 ### Building the Project
 
 1. Open `PrintAllAttachments.sln` in Visual Studio
-2. Restore NuGet packages (should happen automatically)
-3. Build the solution (Ctrl+Shift+B)
+2. Build the solution (Ctrl+Shift+B)
+   - Note: This project does not use NuGet packages
 
 ### Running and Debugging
 
